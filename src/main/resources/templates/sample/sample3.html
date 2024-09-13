@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>簡単なスプレッドシート</title>
+  <style>
+    table {
+      width: 50%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    input {
+      width: 100%;
+      border: none;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <h2>スプレッドシートの計算</h2>
+  <table>
+    <tr>
+      <th>項目</th>
+      <th>値</th>
+    </tr>
+    <tr>
+      <td>セル 1</td>
+      <td><input type="number" id="cell1" oninput="calculate()"></td>
+    </tr>
+    <tr>
+      <td>セル 2</td>
+      <td><input type="number" id="cell2" oninput="calculate()"></td>
+    </tr>
+    <tr>
+      <td>合計</td>
+      <td><input type="text" id="sum" readonly></td>
+    </tr>
+  </table>
+
+  <script>
+    function calculate() {
+      var cell1 = parseFloat(document.getElementById("cell1").value) || 0;
+      var cell2 = parseFloat(document.getElementById("cell2").value) || 0;
+      document.getElementById("sum").value = cell1 + cell2;
+    }
+  </script>
+</body>
+</html>
